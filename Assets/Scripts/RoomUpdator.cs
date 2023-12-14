@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class RoomUpdator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject[] walls;
+    public GameObject[] doors;
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateRoom(bool[] state)
     {
-        
+        for (int i = 0; i < state.Length; i++)
+        {
+            doors[i].SetActive(state[i]);
+            walls[i].SetActive(!state[i]);
+        }
     }
 }
